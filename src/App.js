@@ -1,24 +1,19 @@
-import logo from './logo.svg';
+import { Routes, Route } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle';
 import './App.css';
+import Connexion from './pages/Connexion/Connexion';
+import Inscription from './pages/Inscription/Inscription';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Routes>
+      <Route path='/connexion' element={<Connexion/>}/>
+      <Route path='/inscription' element={<Inscription/>}/>
+    </Routes>
+    
+    </>
   );
 }
 
