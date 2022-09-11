@@ -10,7 +10,7 @@ const Connexion = () => {
             <div className="container ">
                 <div className="row d-flex align-items-center vh-100 ">
                     <div className="col d-none d-lg-block "><h1 className='text-danger d-flex justify-content-end '>tabblz</h1>
-                    <h3 className='d-flex justify-content-end'>Nous partageons votre passion,</h3>
+                    <h3 className='d-flex justify-content-end'>Nous partageons votre passion !</h3>
                     </div>
                     <div className="col d-flex align-items-center justify-content-center">
                         <form className='border p-5 rounded-5 shadow-lg bg-white'>
