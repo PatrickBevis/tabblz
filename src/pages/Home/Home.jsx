@@ -1,7 +1,7 @@
 import React from 'react';
 import NavBotMob from '../../components/NavbarGrp/NavBotMob/NavBotMob';
 import Logo from '../../img/logo.png'
-
+import Footer from '../../components/Footer/Footer';
 
 const Home = () => {
     return (
@@ -10,7 +10,7 @@ const Home = () => {
       backgroundImage: `url(${Logo})`
     }}></div>
             <div className="container">
-                <div className=' row d-flex align-items-center vh-100 '>
+                <div className=' row d-flex align-items-center  '>
             <div className="card border p-1 rounded-4 shadow-lg" >
   <img src="..." className="card-img-top bg-white" alt="..."/>
   <div className="card-body bg-white">
@@ -21,6 +21,7 @@ const Home = () => {
 </div>
             </div>
             <NavBotMob />
+            <Footer />
         </>
     );
 };

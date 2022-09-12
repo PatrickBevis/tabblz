@@ -6,7 +6,7 @@ import { IoIosContact } from 'react-icons/io'
 const NavBotMob = () => {
     return (
         <>
-            <nav className="navbar d-lg-none d-flex justify-content-around bg-white border-top border-2 fixed-bottom container-fluid" id="navbar">
+            <nav className="navbar d-lg-none d-flex justify-content-around bg-white border-top border-2 border-danger fixed-bottom container-fluid" id="navbar">
                 <div className='d-flex border p-1 rounded-4 shadow-lg bg-white '>
                     <BiHomeCircle size={30} className='bg-white text-danger' />
 
