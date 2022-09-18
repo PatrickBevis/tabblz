@@ -9,7 +9,7 @@ const CardCook = () => {
                 <div className=' row d-flex align-items-center  '>
                     <div className="card  border p-1 rounded-4 shadow-lg mt-2 mb-3" >
                         <div className='bg-white '>
-                            <img src="https://via.placeholder.com/50" className=" p-2 me-2 bg-white" alt="..." />
+                            <img src="https://via.placeholder.com/50" className=" p-2 me-2 bg-white rounded-4" alt="..." />
                             <h5 className="card-title bg-white d-inline">Patrick BEVIS</h5>
                         </div>
                         <div className="card-body bg-white">
