@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <>
       
-        <footer className="bg-white container-fluid bg-white border-top border-3 border-danger ">
+        <footer className="bg-white container-fluid bg-white border-top border-3 d-none d-lg-block border-danger ">
           <div className="bg-white d-flex justify-content-center  mt-3">
             <div className="d-flex border p-1 rounded-4 me-2 bg-white ">
               <FaTwitter size={40} className="bg-white text-danger" />

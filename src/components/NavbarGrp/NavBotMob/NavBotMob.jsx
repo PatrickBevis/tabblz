@@ -1,8 +1,9 @@
 import React from 'react';
 import { BiHomeCircle } from 'react-icons/bi'
 import { GiKnifeFork } from 'react-icons/gi'
-import { HiAcademicCap } from 'react-icons/hi'
+import { GiMagnifyingGlass} from 'react-icons/gi'
 import { IoIosContact } from 'react-icons/io'
+import {AiFillPlusSquare} from 'react-icons/ai'
 const NavBotMob = () => {
     return (
         <>
@@ -12,8 +13,13 @@ const NavBotMob = () => {
 
                 </div>
                 <div className='d-flex border p-1 rounded-4 shadow-lg bg-white '>
-                    <HiAcademicCap size={30} className='bg-white text-danger' />
-                    {/* faut trouver une loupe */}
+                    <GiMagnifyingGlass size={30} className='bg-white text-danger' />
+                    
+
+                </div>
+                <div className='shadow-lg  '>
+                    <AiFillPlusSquare size={60} className='bg-light text-danger' />
+                    
 
                 </div>
                 <div className='d-flex border p-1 rounded-4 shadow-lg bg-white '>
