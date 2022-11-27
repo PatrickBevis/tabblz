@@ -1,5 +1,5 @@
 import React from 'react';
-import ButtonInsc from '../../components/ButtonGrp/ButtonInsc/ButtonInsc';
+
 const Inscription = () => {
     return (
         <>
@@ -50,7 +50,9 @@ const Inscription = () => {
                             </div>
                         
                             <div className='d-flex justify-content-end bg-white'>
-                                <ButtonInsc />
+                            <div className='rounded-5'>
+            <button type='submit' className='btn btn-success'>S'inscrire</button>
+        </div>
                             </div>
                         </form>
                     </div>

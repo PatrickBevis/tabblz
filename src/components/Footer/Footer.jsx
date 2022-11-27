@@ -29,7 +29,7 @@ const Footer = () => {
               <h5 className="m-2 bg-white">Contact</h5>
               <p className="m-0 bg-white">123 rue du pain, 59400 Cambrai</p>
               <p className="m-0 bg-white">01 77 88 99 11</p>
-              <p className="m-0 bg-white">contact@Louezunemaison.fr</p>
+              <p className="m-0 bg-white">contact@tabblz.com</p>
             </div>
           </div>
           

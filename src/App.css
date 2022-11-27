@@ -2,3 +2,8 @@
   background-color: #a4b2c0;
 }
 
+.sidenav {
+  visibility:visible;
+  transform: translateX(0) !important;
+  width: 200px !important;
+}

@@ -5,6 +5,7 @@ import './App.css';
 import Connexion from './pages/Connexion/Connexion';
 import Inscription from './pages/Inscription/Inscription';
 import Home from './pages/Home/Home';
+import Error404 from './pages/Error404/Error404';
 
 function App() {
   return (
@@ -12,10 +13,10 @@ function App() {
     
 
     <Routes>
-      <Route path='/connexion' element={<Connexion/>}/>
+      <Route index element={<Connexion/>}/>
       <Route path='/inscription' element={<Inscription/>}/>
       <Route path='/home' element={<Home/>}/>
-
+      <Route path='*' element ={<Error404/>}/>
     </Routes>
     
     </>
