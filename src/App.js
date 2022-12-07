@@ -1,25 +1,35 @@
-import { Routes, Route } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle';
-import './App.css';
-import Connexion from './pages/Connexion/Connexion';
-import Inscription from './pages/Inscription/Inscription';
-import Home from './pages/Home/Home';
-import Error404 from './pages/Error404/Error404';
+import { Routes, Route, Link } from "react-router-dom";
+import { AuthContext } from "./contexts/AuthContext";
+import { useContext } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle";
+import "./App.css";
+import Connexion from "./pages/Connexion/Connexion";
+import Inscription from "./pages/Inscription/Inscription";
+import Home from "./pages/Home/Home";
+import Error404 from "./pages/Error404/Error404";
+import Admin from "./pages/Admin/Admin";
 
 function App() {
-  return (
-    <>
-    
+  const { auth } = useContext(AuthContext);
 
-    <Routes>
-      <Route index element={<Connexion/>}/>
-      <Route path='/inscription' element={<Inscription/>}/>
-      <Route path='/home' element={<Home/>}/>
-      <Route path='*' element ={<Error404/>}/>
-    </Routes>
-    
-    </>
+  return (
+    <div className="container">
+      <div>
+        {auth.role > 0 && <Link to="/home"></Link>}
+
+        {auth.role === 4 && <Link to="/admin"></Link>}
+        {auth.role > 0 && <Link to="/account"></Link>}
+      </div>
+
+      <Routes>
+        <Route index element={<Connexion />} />
+        <Route path="/inscription" element={<Inscription />} />
+        {auth.role > 0 && <Route path="/home" element={<Home />} />}
+        {auth.role === 4 && <Route path="/admin" element={<Admin />} />}
+        <Route path="*" element={<Error404 />} />
+      </Routes>
+    </div>
   );
 }
 

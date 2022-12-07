@@ -1,12 +1,12 @@
 import React from "react";
 import { FaTwitter, FaInstagram, FaFacebookF } from "react-icons/fa";
-
+import "../Footer/Footer.css"
 const Footer = () => {
   return (
     <>
       
-        <footer className="bg-white container-fluid bg-white border-top border-3 d-none d-lg-block border-danger ">
-          <div className="bg-white d-flex justify-content-center  mt-3">
+        <footer className="bg-white container d-flex justify-content-end border-top border-3 d-none d-lg-block border-danger">
+          <div className="bg-white d-flex justify-content-center ms-5 mt-3">
             <div className="d-flex border p-1 rounded-4 me-2 bg-white ">
               <FaTwitter size={40} className="bg-white text-danger" />
             </div>
@@ -20,8 +20,6 @@ const Footer = () => {
           <div className="row">
             <div className="col-lg d-flex flex-column align-items-center bg-white">
               <h5 className="m-2 bg-white">A propos</h5>
-              <p className="m-0 bg-white">Contact</p>
-              <p className="m-0 bg-white">Réservation</p>
               <p className="m-0 bg-white">Mentions légales</p>
               <p className="m-0 bg-white">CGU</p>
             </div>

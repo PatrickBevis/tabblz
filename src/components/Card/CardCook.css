@@ -1,5 +1,13 @@
 .card{
     height: 300px;
     width:  300px;
+    
 }
 
+
+
+@media only screen and (min-width : 700px) {
+    .ml{
+    margin-left: 100px;
+}
+  }

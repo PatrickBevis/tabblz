@@ -1,70 +1,42 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {
-  RiLoginCircleLine,
-  RiHome4Fill,
-  RiFolderUserFill,
-  RiArticleFill,
-  RiPriceTag3Fill,
-} from "react-icons/ri";
-import { MdCategory } from "react-icons/md";
+import { IoIosContact } from "react-icons/io";
+import { BiHomeCircle } from "react-icons/bi";
+import { AiFillPlusSquare } from "react-icons/ai";
 
 const NavSideDesk = () => {
   return (
-    <nav className=" d-flex justify-content-around bg-white   fixed-bottom container-fluid">
+    <nav className=" d-flex d-none d-lg-block justify-content-around   container-fluid">
       <div
-        className="offcanvas offcanvas-start sidenav bg-white"
+        className="offcanvas offcanvas-start sidenav border-right border-5 border-danger "
         tabIndex="-1"
         id="offcanvasExample"
         aria-labelledby="offcanvasExampleLabel"
       >
-        <div className="offcanvas-header bg-white">
-          <h5 className="offcanvas-title bg-white" id="offcanvasExampleLabel">
-            BLOG Admin
+        <div className="offcanvas-header ">
+          <h5 className="offcanvas-title " id="offcanvasExampleLabel">
+            Bonjour,
           </h5>
-          <Link className="nav-link p-2 bg-white" to="/login">
-            <RiLoginCircleLine className="text-secondary bg-white text-danger" size={60} />
-          </Link>
         </div>
-        <div className="offcanvas-body">
+        <div className="offcanvas-body ">
           <ul className="navbar-nav">
             <li className="nav-item p-2">
-              <Link className="nav-link p-1" to="/">
-                <RiHome4Fill className="text-secondary me-2" size={30} />
+              <Link className="nav-link p-1" to="/home">
+                <BiHomeCircle className="text-danger me-2" size={30} />
                 <span className="align-bottom">Accueil</span>
               </Link>
             </li>
             <li className="nav-item p-2">
               <Link className="nav-link p-1" to="/accounts">
-                <RiFolderUserFill
-                  className="text-secondary me-2"
-                  size={"1.4rem"}
-                />
-                <span className="align-bottom">Utilisateurs</span>
+                <IoIosContact className="text-danger me-2" size={30} />
+                <span className="align-bottom">Compte</span>
               </Link>
             </li>
-            <li className="nav-item p-1">
-              <Link className="nav-link p-2" to="/articles">
-                <RiArticleFill
-                  className="text-secondary me-2"
-                  size={"1.4rem"}
-                />
-                <span className="align-bottom">Articles</span>
-              </Link>
-            </li>
-            <li className="nav-item p-1">
-              <Link className="nav-link p-2" to="/themes">
-                <MdCategory className="text-secondary me-2" size={"1.4rem"} />
-                <span className="align-bottom">Thèmes</span>
-              </Link>
-            </li>
-            <li className="nav-item p-1 bg-white">
-              <Link className="nav-link p-2 bg-white" to="/tags">
-                <RiPriceTag3Fill
-                  className="text-secondary me-2 bg-white"
-                  size={"1.4rem"}
-                />
-                <span className="align-bottom bg-white">Tags</span>
+            <li className="nav-item p-2">
+              <Link className="nav-link m-auto" to="/home">
+                <button type="submit" className="btn btn-danger  mt-2">
+                  Créer un repas
+                </button>
               </Link>
             </li>
           </ul>

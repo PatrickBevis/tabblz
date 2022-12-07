@@ -1,7 +1,12 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const Connexion = () => {
+  const { setAuth } = useContext(AuthContext);
+  const  navigate  = useNavigate();
+
   const [valid, setValid] = useState({ email: false, password: false });
   const validForm = (jsonData) => {
     const isValid = { email: false, password: false };
@@ -28,12 +33,21 @@ const Connexion = () => {
       return;
     }
     fetch("http://tabblz.api/auth/login", {
-      method: "PUT",
+      method: "POST",
       body: JSON.stringify(jsonData),
     })
       .then((resp) => resp.json())
       .then((json) => {
         console.log(json);
+        if (json?.data?.result) {
+          // console.log(json?.data?.token)
+          setAuth({ role: +json?.data?.role });
+          document.cookie = `blog=${json?.data?.token};max-age=${60*60*24};`;
+          navigate("/home");
+        } else {
+          setAuth({ role: 0 });
+          document.cookie = `blog=null;max-age=0;`;
+        }
       });
   };
 
