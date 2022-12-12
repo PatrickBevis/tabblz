@@ -9,6 +9,8 @@ import Inscription from "./pages/Inscription/Inscription";
 import Home from "./pages/Home/Home";
 import Error404 from "./pages/Error404/Error404";
 import Admin from "./pages/Admin/Admin";
+import Account from "./pages/Account/Account";
+
 
 function App() {
   const { auth } = useContext(AuthContext);
@@ -26,6 +28,7 @@ function App() {
         <Route index element={<Connexion />} />
         <Route path="/inscription" element={<Inscription />} />
         {auth.role > 0 && <Route path="/home" element={<Home />} />}
+        {auth.role > 0 && <Route path = "/account" element={<Account />}/>}
         {auth.role === 4 && <Route path="/admin" element={<Admin />} />}
         <Route path="*" element={<Error404 />} />
       </Routes>

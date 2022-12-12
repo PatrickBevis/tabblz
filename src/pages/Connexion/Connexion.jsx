@@ -2,6 +2,8 @@ import React from "react";
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
+import { setCookie, deleteCookie } from "../../helpers/CookiesHelpers";
+import doFetch from "../../helpers/FetchHelpers";
 
 const Connexion = () => {
   const { setAuth } = useContext(AuthContext);
@@ -11,7 +13,7 @@ const Connexion = () => {
   const validForm = (jsonData) => {
     const isValid = { email: false, password: false };
     const emailInput = document.getElementById("email-input");
-    const emailPattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    const emailPattern = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
     if (emailPattern.test(emailInput.value)) {
       isValid.email = true;
     }
@@ -24,7 +26,7 @@ const Connexion = () => {
     return isValid.email === true && isValid.password === true;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const jsonData = Object.fromEntries(formData.entries());
@@ -32,24 +34,20 @@ const Connexion = () => {
     if (!validForm(jsonData)) {
       return;
     }
-    fetch("http://tabblz.api/auth/login", {
+    const {data} = await doFetch("/auth/login", {
       method: "POST",
       body: JSON.stringify(jsonData),
-    })
-      .then((resp) => resp.json())
-      .then((json) => {
-        console.log(json);
-        if (json?.data?.result) {
-          // console.log(json?.data?.token)
-          setAuth({ role: +json?.data?.role });
-          document.cookie = `blog=${json?.data?.token};max-age=${60*60*24};`;
-          navigate("/home");
-        } else {
-          setAuth({ role: 0 });
-          document.cookie = `blog=null;max-age=0;`;
-        }
-      });
-  };
+    });
+    if (data?.data?.result) {
+      setAuth({ role: +data?.data?.role, id: data?.data?.id });
+      setCookie("tabblz", data?.data?.token, { "max-age": 60 * 60 * 24 });
+      navigate("/home");
+    } else {
+      setAuth({ role: 0, id: "0" });
+      deleteCookie("tabblz");
+    }
+      };
+  
 
   return (
     <>
@@ -85,7 +83,9 @@ const Connexion = () => {
                   id="email-input"
                   aria-describedby="emailHelp"
                 />
-                {/* <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div> */}
+                 <i className={"text-danger" + (valid.email ? " d-none" : "")}>
+             *must be a valid email address
+            </i>
               </div>
               <div className="mb-3 bg-white">
                 <label htmlFor="password-input" className="form-label bg-white">
@@ -98,6 +98,9 @@ const Connexion = () => {
                   className="form-control"
                   id="password-input"
                 />
+                <i className={"text-danger" + (valid.password ? " d-none" : "")}>
+             *6 characters including a capital letter
+          </i>
               </div>
 
               <div className="d-flex justify-content-center bg-white">

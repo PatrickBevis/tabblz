@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
-import { deleteCookie, getCookie } from "../helpers/CookiesHelpers";
+import { deleteCookie} from "../helpers/CookiesHelpers";
+import doFetch from "../helpers/FetchHelpers";
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
@@ -7,22 +8,16 @@ const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState({ role: 0, id: "0"});
 
   useEffect(() => {
-    fetch("http://tabblz.api/auth/check", {
-      credentials: "include",
-      headers: {
-        Authorization: getCookie("blog"),
-      },
-    })
-      .then((resp) => resp.json())
-      .then((json) => {
-        console.log(json?.data);
-        if (json?.data?.result) {
-          setAuth({ role: +json?.data?.role, id:json.id });
+    const check = async () =>{
+    const {data} = await doFetch("auth/check"); 
+        if (data?.result) {
+          setAuth({ role: +data?.role, id:data?.id });
         } else {
           setAuth({ role: 0, id:"0"});
-          deleteCookie("blog");
+          deleteCookie("tabblz");
         }
-      });
+      }
+      check()
   }, []);
   return (
     <AuthContext.Provider value={{ auth, setAuth }}>
