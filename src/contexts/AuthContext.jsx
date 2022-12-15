@@ -10,8 +10,9 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const check = async () =>{
     const {data} = await doFetch("auth/check"); 
-        if (data?.result) {
-          setAuth({ role: +data?.role, id:data?.id });
+    console.log(data);
+        if (data?.data?.result) {
+          setAuth({ role: +data?.data?.role, id:data?.data?.id });
         } else {
           setAuth({ role: 0, id:"0"});
           deleteCookie("tabblz");

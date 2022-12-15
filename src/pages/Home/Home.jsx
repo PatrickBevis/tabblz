@@ -17,12 +17,24 @@ const Home = () => {
 
   return (
     <>
-    {data && data.data?.map((item, i) => <div key={i}> {item.title} </div>)}
       <div className="container">
         <div className="row">
           
-          <CardCook />
-        </div>
+          {data?.data.map((meal) => {
+            return (
+              
+                <CardCook key={meal.Id_meal}
+                title= {meal.title}
+                price = {meal.price}
+                number = {meal.number}
+                created_at = {meal.release_date}
+                 />
+              
+             
+            );
+          })}
+          </div>
+        
       </div>
       <Header />
 

@@ -1,13 +1,20 @@
-import React, { useContext } from "react";
+import React, { useContext} from "react";
 import { Link } from "react-router-dom";
 import { IoIosContact } from "react-icons/io";
 import { BiHomeCircle } from "react-icons/bi";
-import { FiKey} from 'react-icons/fi';
+import { FiKey } from "react-icons/fi";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { deleteCookie } from "../../../helpers/CookiesHelpers";
+import useFetch from "../../../hooks/UseFetch";
 
 const NavSideDesk = () => {
   const { auth, setAuth } = useContext(AuthContext);
+  
+
+  const { data} = useFetch("appuser/" + auth.id, {
+    method: "GET",
+  });
+  console.log(data);
 
   return (
     <nav className=" d-flex d-none d-lg-block justify-content-around   container-fluid">
@@ -19,7 +26,7 @@ const NavSideDesk = () => {
       >
         <div className="offcanvas-header ">
           <h5 className="offcanvas-title " id="offcanvasExampleLabel">
-            Bonjour,
+            Bonjour {data?.data[0]?.pseudo},
           </h5>
         </div>
         <div className="offcanvas-body ">
@@ -30,13 +37,13 @@ const NavSideDesk = () => {
                 <span className="align-bottom">Accueil</span>
               </Link>
             </li>
-            {auth.role > 0 &&(
-            <li className="nav-item p-2">
-              <Link className="nav-link p-1" to="/account">
-                <IoIosContact className="text-danger me-2" size={30} />
-                <span className="align-bottom">Compte</span>
-              </Link>
-            </li>
+            {auth.role > 0 && (
+              <li className="nav-item p-2">
+                <Link className="nav-link p-1" to="/account">
+                  <IoIosContact className="text-danger me-2" size={30} />
+                  <span className="align-bottom">Compte</span>
+                </Link>
+              </li>
             )}
             {auth.role === 4 && (
               <li className="nav-item p-2">
@@ -69,6 +76,9 @@ const NavSideDesk = () => {
                 </button>
               </li>
             )}
+
+            
+            
           </ul>
         </div>
       </div>

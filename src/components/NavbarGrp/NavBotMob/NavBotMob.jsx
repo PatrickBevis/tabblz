@@ -31,20 +31,7 @@ const NavBotMob = () => {
             </Link>
           )}
         </div>
-        {/* <div className="d-flex border p-1 rounded-4 shadow-lg bg-white">
-          {auth.role > 0 && (
-            <Link
-              className="nav-link"
-              onClick={() => {
-                setAuth({ role: 0, id: "0" });
-                deleteCookie("tabblz");
-                window.location.href = "/";
-              }}
-            >
-              <ImExit className="text-primary " size={30} />
-            </Link>
-          )}
-        </div> */}
+       
       </nav>
     </>
   );

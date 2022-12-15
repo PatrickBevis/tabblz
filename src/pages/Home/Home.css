@@ -4,6 +4,20 @@ background-repeat: no-repeat;
 opacity : 1;
 } */
 
-.marg{
-    margin:0
+
+@media only screen and (min-width: 992px) {
+   .container {
+    margin-left: 90px;
 }
+    }
+
+    @media only screen and (max-width: 991px) {
+        .container {
+        
+         margin-top: 50px;
+         margin-bottom: 80px;
+         
+
+     }
+         }
+  

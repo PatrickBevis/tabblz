@@ -10,6 +10,7 @@ import Home from "./pages/Home/Home";
 import Error404 from "./pages/Error404/Error404";
 import Admin from "./pages/Admin/Admin";
 import Account from "./pages/Account/Account";
+import Meal from "./pages/Meal/Meal"
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
 
   return (
     <div className="container">
+      
       <div>
         {auth.role > 0 && <Link to="/home"></Link>}
 
@@ -30,6 +32,7 @@ function App() {
         {auth.role > 0 && <Route path="/home" element={<Home />} />}
         {auth.role > 0 && <Route path = "/account" element={<Account />}/>}
         {auth.role === 4 && <Route path="/admin" element={<Admin />} />}
+        {auth.role > 0 && <Route path = "/meal:id" element={<Meal />}/>}
         <Route path="*" element={<Error404 />} />
       </Routes>
     </div>

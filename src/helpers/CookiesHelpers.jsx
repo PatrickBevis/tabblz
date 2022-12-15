@@ -1,8 +1,6 @@
 export const getCookie = (name) => {
   return (
-    document.cookie
-      .match("(^|;) \\ s*" + name + " \\ s*= \\ s*([^;]+)")
-      ?.pop() || ""
+    document.cookie.match("(^|;)\\s*" + name + "\\s*=\\s*([^;]+)")?.pop() || ""
   );
 };
 export const setCookie = (name, value, options = {}) => {
