@@ -6,6 +6,7 @@ import CardCook from "../../components/Card/CardCook";
 import NavSideDesk from "../../components/NavbarGrp/NavSideDesk/NavSideDesk";
 import Header from "../../components/Header/Header";
 import useFetch from "../../hooks/UseFetch";
+
 const Home = () => {
   const { data, loading, error, text } = useFetch("meal");
   console.log(data);
@@ -28,21 +29,17 @@ const Home = () => {
                 price = {meal.price}
                 number = {meal.number}
                 created_at = {meal.release_date}
-                 />
-              
-             
+                 /> 
             );
           })}
-          </div>
-        
+          </div>       
       </div>
       <Header />
-
       <NavSideDesk />
       <NavBotMob />
       <Footer />
     </>
-  );
-};
+  );};
+
 
 export default Home;

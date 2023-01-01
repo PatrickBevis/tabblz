@@ -11,6 +11,7 @@ import Error404 from "./pages/Error404/Error404";
 import Admin from "./pages/Admin/Admin";
 import Account from "./pages/Account/Account";
 import Meal from "./pages/Meal/Meal"
+import ValidateScreen from "./pages/Validate/ValidateScreen";
 
 
 function App() {
@@ -28,11 +29,12 @@ function App() {
 
       <Routes>
         <Route index element={<Connexion />} />
-        <Route path="/inscription" element={<Inscription />} />
+        {auth.role === 0 &&<Route path="/inscription" element={<Inscription />} />}
         {auth.role > 0 && <Route path="/home" element={<Home />} />}
         {auth.role > 0 && <Route path = "/account" element={<Account />}/>}
         {auth.role === 4 && <Route path="/admin" element={<Admin />} />}
         {auth.role > 0 && <Route path = "/meal:id" element={<Meal />}/>}
+        {auth.role === 0 && <Route path="/account/validate/:token" element={<ValidateScreen />} />}
         <Route path="*" element={<Error404 />} />
       </Routes>
     </div>

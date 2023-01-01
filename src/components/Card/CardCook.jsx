@@ -4,6 +4,7 @@ import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 const CardCook = ({price, created_at, title, number }) => {
+
   return (
     
       <div className="col-12 col-lg-6">

@@ -10,7 +10,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const check = async () =>{
     const {data} = await doFetch("auth/check"); 
-    console.log(data);
+    // console.log(data);
         if (data?.data?.result) {
           setAuth({ role: +data?.data?.role, id:data?.data?.id });
         } else {

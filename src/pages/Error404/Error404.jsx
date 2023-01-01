@@ -8,6 +8,9 @@ const Error404 = () => {
   const { auth } = useContext(AuthContext);
   return (
     <>
+     <img className="img d-flex m-auto" src={manique} alt="logo"/>
+     <h2 className="d-flex justify-content-center fw-bold">Error 404</h2>
+     
       {auth?.role > 0 ? (
         <div className="rounded-5 d-flex">
           <Link className="nav-link m-auto" to="/home">
